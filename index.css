@@ -1,0 +1,12 @@
+.curser-dom{
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    filter: blur(32px);
+}
+
+.curser-wrapper{
+    position: absolute;
+    z-index: 2147483647;
+}
