@@ -1,25 +1,26 @@
-interface CursorConfiguration {
+interface CursorProps {
   size?: number;
   zIndex?: string;
-}
-interface CursorProps {
-  domElement?: HTMLElement;
-  configuration?: CursorConfiguration;
+  blurSize?: number;
 }
 
 const DEFAULT_SIZE = 72;
 const DEFAULT_Z_INDEX = "2147483647";
 class cursorAgent {
   cursor: HTMLDivElement;
-  private domElement: HTMLElement;
-  private size: number;
-  private zIndex: string;
-  constructor(props: CursorProps) {
-    const { domElement = null, configuration = {} } = props;
-    const { size = DEFAULT_SIZE, zIndex = DEFAULT_Z_INDEX } = configuration;
-    this.domElement = domElement;
+  size: number;
+  zIndex: string;
+  blurSize: number;
+  domElement: HTMLElement;
+  constructor(props: CursorProps = {}) {
+    const {
+      size = DEFAULT_SIZE,
+      zIndex = DEFAULT_Z_INDEX,
+      blurSize = 5,
+    } = props;
     this.size = size;
     this.zIndex = zIndex;
+    this.blurSize = blurSize;
     this.cursor = this.createBlurcursor();
   }
 
@@ -37,7 +38,7 @@ class cursorAgent {
     cursorDom.style.height = `${this.size}px`;
     cursorDom.style.border = "none";
     cursorDom.style.borderRadius = "50%";
-    //cursorDom.style.backdropFilter = "blur(5px)";
+    cursorDom.style.cssText += `backdrop-filter: blur(${this.blurSize}px);-webkit-backdrop-filter: blur(${this.blurSize}px);`;
     return cursorDom;
   };
 
@@ -53,17 +54,15 @@ class cursorAgent {
     this.cursor.style.top = e.clientY - this.size / 2 + "px";
   };
 
-  init = () => {
-    if (this.domElement) {
-      this.domElement.appendChild(this.cursor);
-    } else {
-      document.body.appendChild(this.cursor);
-    }
+  init = (domElement = null) => {
+    this.domElement = domElement ? domElement : document.body;
+    this.domElement.appendChild(this.cursor);
     window.addEventListener("mousemove", this.update);
   };
 
   destroy = () => {
     window.removeEventListener("mousemove", this.update);
+    this.domElement.removeChild(this.cursor);
   };
 }
 

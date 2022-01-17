@@ -1,4 +1,4 @@
-import curserAgent from "./curserAgent";
+import cursorAgent from "./cursorAgent";
 
-const blurCurser = new curserAgent({});
-blurCurser.init();
+const blurCursor = new cursorAgent();
+blurCursor.init();
