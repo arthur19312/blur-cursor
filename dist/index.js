@@ -24,6 +24,7 @@
                 var cursorWrapper = window.document.createElement("div");
                 cursorWrapper.style.position = "absolute";
                 cursorWrapper.style.zIndex = _this.zIndex;
+                cursorWrapper.style.pointerEvents = "none";
                 return cursorWrapper;
             };
             this.update = function (e) {
