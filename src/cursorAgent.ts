@@ -46,6 +46,7 @@ class cursorAgent {
     const cursorWrapper = window.document.createElement("div");
     cursorWrapper.style.position = "absolute";
     cursorWrapper.style.zIndex = this.zIndex;
+    cursorWrapper.style.pointerEvents = "none";
     return cursorWrapper;
   };
 

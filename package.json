@@ -1,6 +1,6 @@
 {
   "name": "blur-cursor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "✨ a cursor with backdrop-filter-blur ",
   "main": "dist/index.js",
   "scripts": {
