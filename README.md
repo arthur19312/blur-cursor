@@ -25,7 +25,7 @@ properties are default as:
 
 ```javascript
 const defaultProps = {
-  /* diameter of the round cursor, the default size cursor looks like a thumb */
+  /* diameter of the round cursor */
   size: 72,
   /* heard as the maximum z-index, replace it with an appropriate value */
   zIndex: 2147483647,
