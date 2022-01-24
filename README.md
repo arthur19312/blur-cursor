@@ -21,7 +21,7 @@ blurCursor.destroy();
 
 ## Properties
 
-every property is default as:
+properties are default as:
 
 ```javascript
 const defaultProps = {
@@ -34,7 +34,7 @@ const defaultProps = {
 };
 ```
 
-when you init, input the dom to mount the cursor:
+when you do init, input the dom to mount the cursor:
 
 ```javascript
 blurCursor.init(someDomNode);
