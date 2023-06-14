@@ -28,6 +28,7 @@
   "homepage": "https://github.com/arthur19312/blur-cursor#readme",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^27.4.0",
     "jest": "^27.4.7",
     "rollup": "^2.64.0",
