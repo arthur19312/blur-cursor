@@ -9,35 +9,28 @@ $ npm i blur-cursor
 ## Usage
 
 ```javascript
-import cursorAgent from "./cursorAgent";
-const blurCursor = new cursorAgent();
+import { useCursorBlur } from "blur-cursor";
+const [ destroy ] = useCursorBlur(domNode, { ...config });
 
-/* init when you need */
-blurCursor.init();
-
-/* destroy when you need */
-blurCursor.destroy();
+/** detroy it when you need */
+destroy();
 ```
 
-## Properties
+## Cursor Properties
 
 properties are default as:
 
 ```javascript
-const defaultProps = {
-  /* diameter of the round cursor */
-  size: 72,
-  /* heard as the maximum z-index, replace it with an appropriate value */
-  zIndex: 2147483647,
-  /* degree of blur */
-  blurSize: 5,
+export const INITIAL_CURSOR_CONFIG = {
+  size: 72, // the round cursor scale in px
+  zIndex: "2147483647", // max zIndex value, could be more appropriate if you need
+  blurSize: 5, // how blurry this cursor is
+  spread: "", // completely blurry area scale in percent suffix, like "40%"
+  feather: "", // the transparent edge scale in percent suffix, like "60%"
 };
 ```
 
-when you do init, input the dom to mount the cursor:
-
+if you need feather effect, you should use  `spread`  and  `feather` attributes that work as
 ```javascript
-blurCursor.init(someDomNode);
+`radial-gradient(circle, rgba(0,0,0,1}) ${spread}, transparent ${feather})`
 ```
-
-well, input nothing will mount the cursor on document.body
