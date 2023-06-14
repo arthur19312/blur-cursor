@@ -1,18 +1,16 @@
-const cursorAgent = require("../dist/index.js");
-const blurCursor = new cursorAgent({ size: 64, zIndex: 10, blurSize: 4 });
-
-test("actions provide", () => {
-  expect(typeof blurCursor.init).toBe("function");
-  expect(typeof blurCursor.destroy).toBe("function");
-});
+const { useCursorBlur } = require("../dist/index.js");
 
 const wrapper = window.document.createElement("div");
 wrapper.id = "cursor";
 document.body.appendChild(wrapper);
 
-blurCursor.init(wrapper);
+const [destroyCursor] = useCursorBlur(document.body, {
+  size: 64,
+  zIndex: 10,
+  blurSize: 4,
+  feather: "60%",
+});
 
-test("test init params", () => {
-  const cursor = document.querySelector("#cursor");
-  // how to test css?
+test("actions provide", () => {
+  expect(typeof destroyCursor).toBe("function");
 });

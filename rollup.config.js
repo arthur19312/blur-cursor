@@ -1,7 +1,7 @@
 import typescript from "@rollup/plugin-typescript";
 
 export default {
-  input: "src/cursorAgent.ts",
+  input: "src/cursor.ts",
   output: [
     {
       file: "dist/index.js",

@@ -1,12 +1,9 @@
-import { useCursorBlur } from "./cursorAgent";
+import { useCursorBlur } from "./cursor";
 
-useCursorBlur(
-  document.body,
-  {
-    size: 200,
-    zIndex: '10',
-    blurSize: 4,
-    feather: '60%',
-    spread: '40%'
-  }
-)
+useCursorBlur(document.body, {
+  size: 200,
+  zIndex: 10,
+  blurSize: 4,
+  spread: "40%",
+  feather: "60%",
+});
